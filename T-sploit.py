@@ -47,6 +47,3 @@ def main():
         print("Geçersiz bir seçim yaptınız. Tekrar deneyin.")
 
     main()
-
-if __name__ == "__main__":
-    main()
