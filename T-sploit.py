@@ -1,8 +1,32 @@
 import os
+import shutil
+
+def find_sqlmap_path():
+    # Termux için özel olarak kontrol edilecek yerler
+    termux_paths = [
+        "/data/data/com.termux/files/usr/bin/sqlmap",  # Örnek bir yol
+        "/data/data/com.termux/files/usr/bin/sqlmap.py",  # Örnek bir yol
+    ]
+
+    for path in termux_paths:
+        if os.path.exists(path):
+            return path
+
+    # PATH ortam değişkeninde de sqlmap'in olabileceği yerler aranır
+    paths = os.environ.get("PATH", "").split(":")
+    for path in paths:
+        sqlmap_path = os.path.join(path, "sqlmap")
+        if os.path.exists(sqlmap_path):
+            return sqlmap_path
+
+    return None
 
 def run_sqlmap():
-    sqlmap_path = r"C:\Users\velie\OneDrive\Masaüstü\t-sploit\sqlinj\sqlmap.py"
-    os.system(f"python {sqlmap_path}")
+    sqlmap_path = find_sqlmap_path()
+    if sqlmap_path:
+        os.system(f"python {sqlmap_path}")
+    else:
+        print("sqlmap bulunamadı.")
 
 # Ana işlev
 def main():
