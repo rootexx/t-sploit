@@ -36,6 +36,3 @@ def main():
         else:
             print("Geçersiz bir seçim yaptınız. Tekrar deneyin.")
             continue  # Yanlış seçenek seçildiğinde döngünün başına dön ve ana menüyü tekrar aç
-
-if __name__ == "__main__":
-    main()
