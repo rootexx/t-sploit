@@ -21,7 +21,18 @@ RED='\033[0;31m'
 CYAN='\033[0;36m'
 NC='\033[0m'
 
+banner() {
+    echo -e "${CYAN}"
+    echo "****************************************"
+    echo "*      Hoş Geldiniz! Türk Siber Timi    *"
+    echo "****************************************"
+    echo -e "${NC}"
+}
+
 while true; do
+    clear
+    banner
+    
     echo -e "${RED}[01]${NC} Website IP'sini bul"
     echo -e "${RED}[02]${NC} Admin panelini bul"
     echo -e "${RED}[03]${NC} DDoS saldırısı gerçekleştir"
